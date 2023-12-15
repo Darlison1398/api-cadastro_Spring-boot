@@ -1,24 +1,32 @@
 package com.src.model;
 
 import jakarta.annotation.Generated;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "contatos", schema = "cad")
 public class Contatos {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idcontato")
     private Long idcontato;
 
+    @Column(name = "nome", nullable = false)
     private String nome;
 
+    @Column(name = "idade")
     private int idade;
 
+    @Column(name = "descricao")
     private String descricao;
 
+    @Column(name = "foto")
     private String foto;
 
     public Long getIdcontato() {

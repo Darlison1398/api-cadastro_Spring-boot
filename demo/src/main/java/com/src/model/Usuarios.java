@@ -17,7 +17,7 @@ public class Usuarios {
     private String nome;
     private String sobrenome;
     private String email;
-    private String senhaHash;
+    private String senha;
     
     
 
@@ -45,17 +45,17 @@ public class Usuarios {
         this.email = email;
     }
 
-    public String getSenhaHash() {
-        return senhaHash;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setSenhaHash(String senhaHash) {
+    public void setSenha(String senha) {
         String salt = BCrypt.gensalt(12); // Gere um salt aleatório
-        this.senhaHash = BCrypt.hashpw(senhaHash, salt);
+        this.senha = BCrypt.hashpw(senha, salt);
     }
 
     public boolean verificaSenha(String senha) {
-        return BCrypt.checkpw(senha, this.senhaHash);
+        return BCrypt.checkpw(senha, this.senha);
     }
 
     public Long getIdUsuario() {
